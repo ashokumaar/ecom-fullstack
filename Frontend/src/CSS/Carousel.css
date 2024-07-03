@@ -1,0 +1,35 @@
+.carousel > .carousel-indicators [data-bs-target] {
+  border-radius: 100%;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+}
+
+.carousel > .carousel-indicators {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin-right: 15%;
+  margin-bottom: 0;
+  margin-left: 15%;
+}
+.carousel img {
+  width: 100%;
+  height: 100%;
+}
+@media screen and (max-width: 768px) {
+  /* .carousel img {
+    width: 100%;
+    height: 150px;
+  } */
+  .carousel > .carousel-indicators [data-bs-target] {
+    width: 8px;
+    height: 8px;
+    margin: 0 5px;
+  }
+}

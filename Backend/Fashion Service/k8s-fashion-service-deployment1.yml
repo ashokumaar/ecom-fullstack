@@ -1,0 +1,71 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fashion-service
+  labels:
+    app: fashion-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fashion-service
+  template:
+    metadata:
+      labels:
+        app: fashion-service
+    spec:
+      serviceAccountName: fashion-service-sa    
+      initContainers:
+      - name: wait-for-external-ip
+        image: bitnami/kubectl:1.22
+        command:
+        - /bin/sh
+        - -c
+        - |
+          while [ -z "$(kubectl get svc fashion-service -o jsonpath='{.status.loadBalancer.ingress[0].ip}')" ]; do
+            echo "Waiting for external IP..."
+            sleep 5
+          done
+          EXTERNAL_IP=$(kubectl get svc fashion-service -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+          echo $EXTERNAL_IP > /etc/external-ip/fashion-service-ip
+        volumeMounts:
+        - name: external-ip
+          mountPath: /etc/external-ip
+      containers:
+      - name: fashion-service
+        image: ashokkumarvg/ecommerce-fashion-service:0.0.18-SNAPSHOT
+        ports:
+        - containerPort: 8100
+        env:
+        - name: DB_HOST
+          value: mysql-service
+        - name: DB_NAME
+          value: akfashiondb
+        - name: DB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: mysql-credentials
+              key: username
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-credentials
+              key: password
+        - name: MYSQL_PASSWORD
+          value: "12345678"
+#        - name: FASHION_SERVICE_HOSTNAME
+#          value: fashion-service
+        - name: FASHION_SERVICE_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: fashion-service-ip
+              key: ip
+        volumeMounts:
+        - name: external-ip
+          mountPath: /etc/external-ip
+          subPath: fashion-service-ip
+          readOnly: true
+      volumes:
+      - name: external-ip
+        emptyDir: {}
+      restartPolicy: Always

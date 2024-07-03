@@ -1,0 +1,73 @@
+.card {
+    background-color: #fff;
+    border-radius: 0.5rem;
+}
+
+#card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card-subtitle {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+.circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    font-size: 15px;
+    color: white;
+    position: relative;
+    background-color: grey;
+}
+
+.circle.completed {
+    background-color: green;
+}
+
+/* .circle.active {
+    background-color: rgb(37, 117, 37);
+} */
+
+.circle.pending {
+    background-color: grey;
+}
+
+.line {
+    height: 4px;
+    flex: 1;
+    background-color: grey;
+}
+
+.line.completed {
+    background-color: green;
+}
+
+/* .line.active {
+    background-color: rgb(37, 117, 37);
+} */
+
+.mt-2 {
+    margin-top: 0.5rem;
+}
+
+.step-text {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.step-text.completed {
+    color: green;
+}
+
+/* .step-text.active {
+    color: rgb(37, 117, 37);
+} */
+
+.step-text.pending {
+    color: grey;
+}

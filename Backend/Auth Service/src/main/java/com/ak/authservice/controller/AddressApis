@@ -1,0 +1,18 @@
+POST : http://localhost:8000/users/addAddress
+{
+	"id":1000, ====== (used only while updating address based on primary key id)
+    "user":{"id":1000}
+    "street":"SBN coliv pg hostel",
+    "area":"Gachibowli",
+    "city":"Hyderabad",
+    "state":"Telangana",
+    "pincode":"500032"
+}
+
+PUT : http://localhost:8000/users/defaultAddress
+{
+    "id":1000,
+    "user":{
+        "id":1000
+    }
+}

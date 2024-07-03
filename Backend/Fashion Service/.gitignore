@@ -1,0 +1,55 @@
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Compiled class file
+**/target/
+**/bin/
+**/build/
+
+# Log files
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# IntelliJ
+*.iml
+.idea/
+.idea/**
+
+# Eclipse
+.classpath
+.project
+.settings/
+.metadata/
+
+# VS Code
+.vscode/
+
+# Maven
+/target/
+/out/
+
+# Gradle
+.gradle/
+build/
+
+# STS
+.springBeans
+
+# Others
+.DS_Store
+.env

@@ -1,0 +1,133 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  height: auto;
+  /* Ensure no wrapping */
+  flex-wrap: nowrap;
+}
+
+.navbar > * {
+  /* Add some space between items */
+  margin: 0 10px;
+}
+
+.navbar .form-outline {
+  display: flex;
+  align-items: center;
+  /* Allow the input group to take up remaining space */
+  flex-grow: 1;
+}
+
+.navbar .btn {
+  margin: 0;
+  padding: 0;
+}
+nav a,
+#offcanvas a {
+  text-decoration: none;
+  color: black;
+}
+nav a.active,
+#offcanvas a.active {
+  text-decoration: none;
+  font-weight: bold;
+  color: rgba(19, 110, 184, 0.838);
+}
+nav a:hover,
+#offcanvas a:hover {
+  text-decoration: none;
+  color: rgba(19, 110, 184, 0.838);
+}
+
+/* Styles for the cart icon and badge */
+.cart-icon-container {
+  position: relative;
+  display: inline-block;
+}
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: rgb(205, 71, 71);
+  color: white;
+  border-radius: 50%;
+  padding: 0px 6px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar .form-control {
+    width: 100px;
+    /* Allow the input group to take up remaining space */
+    flex-grow: 1;
+    padding-left: 36px;
+  }
+  .navbar .input-group {
+    display: flex;
+    align-items: center;
+    /* position: relative; */
+  }
+  #offcanvas {
+    width: 170px;
+  }
+  #sidebar-menu {
+    height: 20px;
+    width: 20px;
+  }
+  #home-icon {
+    height: 20px;
+    width: 20px;
+  }
+  #search-icon {
+    height: 16px;
+    width: 16px;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  #cart-icon {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .navbar .form-control {
+    width: 200px;
+    /* Allow the input group to take up remaining space */
+    flex-grow: 1;
+    padding-left: 40px;
+  }
+  .navbar .input-group {
+    display: flex;
+    align-items: center;
+    /* position: relative; */
+  }
+  #offcanvas {
+    width: 300px;
+  }
+  #sidebar-menu {
+    height: 25px;
+    width: 25px;
+  }
+  #home-icon {
+    height: 25px;
+    width: 25px;
+  }
+  #search-icon {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  #cart-icon {
+    height: 25px;
+    width: 25px;
+  }
+}

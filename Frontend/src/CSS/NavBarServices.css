@@ -1,0 +1,22 @@
+/* Media query for smaller screens (e.g., mobile devices) */
+@media screen and (max-width: 768px) {
+  #my-image {
+    /* Apply your desired styles for smaller screens here */
+    /* Example: Reduce image height */
+    height: 60px;
+    width: 60px;
+  }
+  span {
+    font-size: x-small;
+  }
+}
+
+/* Media query for large screens (e.g., desktops) */
+@media screen and (min-width: 768px) {
+  #my-image {
+    /* Apply your desired styles for large screens here */
+    /* Example: Increase image size or add borders */
+    height: 100px;
+    width: 100px;
+  }
+}

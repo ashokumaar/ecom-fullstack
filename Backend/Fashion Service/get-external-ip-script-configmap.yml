@@ -1,0 +1,59 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: get-external-ip-script2
+data:
+#  get-external-ip-address.sh: |
+#    #!/bin/sh
+#    EXTERNAL_IP=""
+#    while [ -z "$EXTERNAL_IP" ]; do
+#      echo "Waiting for external endpoint..."
+#      EXTERNAL_IP=$(kubectl get svc fashion-service -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
+#      [ -z "$EXTERNAL_IP" ] && EXTERNAL_IP=$(kubectl get svc fashion-service -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+#      [ -z "$EXTERNAL_IP" ] && sleep 10
+#    done
+#    echo "External endpoint is: $EXTERNAL_IP"
+#    export FASHION_SERVICE_EXTERNAL_HOST=$EXTERNAL_IP
+#    exec "$@"
+
+# curl -s or wget -qO- 
+#  get-external-ip-address.sh: |
+#    #!/bin/sh
+#    EXTERNAL_IP=""
+#    while [ -z "$EXTERNAL_IP" ]; do
+#      echo "Waiting for external endpoint..."
+#      EXTERNAL_IP=$(wget -qO- http://169.254.169.254/latest/meta-data/services/kubernetes/default/fashion-service)
+#      [ -z "$EXTERNAL_IP" ] && sleep 10
+#    done
+#    echo "External endpoint is: $EXTERNAL_IP"
+#    export FASHION_SERVICE_EXTERNAL_HOST=$EXTERNAL_IP
+#    exec "$@"
+
+#  get-external-ip-address.sh: |
+#    #!/bin/sh
+#    EXTERNAL_IP=""
+#    while [ -z "$EXTERNAL_IP" ]; do
+#      echo "Waiting for external endpoint..."
+#      EXTERNAL_IP=$(echo $FASHION_SERVICE_SERVICE_HOST)
+#      [ -z "$EXTERNAL_IP" ] && sleep 10
+#    done
+#    echo "External endpoint is: $EXTERNAL_IP"
+#    export FASHION_SERVICE_HOST=$EXTERNAL_IP
+#    exec "$@"
+  get-external-ip-address.sh: |
+    #!/bin/sh
+
+    EXTERNAL_HOST=""
+    EXTERNAL_PORT=""
+    while [ -z "$EXTERNAL_HOST" ] || [ -z "$EXTERNAL_PORT" ]; do
+      echo "Waiting for external endpoint..."
+      EXTERNAL_HOST=$(echo $FASHION_SERVICE_SERVICE_HOST)
+      EXTERNAL_PORT=$(echo $FASHION_SERVICE_SERVICE_PORT)
+      [ -z "$EXTERNAL_HOST" ] || [ -z "$EXTERNAL_PORT" ] && sleep 10
+    done
+    
+    echo "External endpoint is: $EXTERNAL_HOST:$EXTERNAL_PORT"
+    export FASHION_SERVICE_EXTERNAL_HOST=$EXTERNAL_HOST
+    export FASHION_SERVICE_HOST=$EXTERNAL_PORT
+    exec "$@"
+

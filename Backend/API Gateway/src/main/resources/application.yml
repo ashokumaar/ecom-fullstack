@@ -1,0 +1,125 @@
+spring:
+ cloud:
+   gateway:
+     globalcors:
+       cors-configurations:
+         '[/**]':
+           allowedOrigins:
+             - "http://localhost:3000"
+             - "http://127.0.0.1:5500"
+             - "https://ak-ecom.netlify.app"
+             - "https://ashokumaar.github.io"
+           allowedMethods:
+             - GET
+             - POST
+             - PUT
+             - DELETE
+ 
+     default-filters:
+       - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
+       
+     routes:
+           
+       - id: authentication-service
+         uri: lb://auth-service
+         predicates:
+           - Path=/auth/**
+         metadata:
+           cors:
+             allowedOrigins: "*"
+             allowedMethods:
+               - GET
+               - POST
+             allowedHeaders: "*"
+         filters:
+           - AuthenticationFilter
+           
+       - id: authentication-service
+         uri: lb://auth-service
+         predicates:
+           - Path=/users/**
+         metadata:
+           cors:
+             allowedOrigins: "*"
+             allowedMethods:
+               - GET
+               - POST
+               - PUT
+               - DELETE
+             allowedHeaders: "*"
+         filters:
+           - AuthenticationFilter
+           
+       - id: authentication-service
+         uri: lb://auth-service
+         predicates:
+           - Path=/carts/**
+         metadata:
+           cors:
+             allowedOrigins: "*"
+             allowedMethods:
+               - GET
+               - POST
+               - PUT
+               - DELETE
+             allowedHeaders: "*"
+         filters:
+           - AuthenticationFilter
+                   
+       - id: authentication-service
+         uri: lb://auth-service
+         predicates:
+           - Path=/orders/**
+         metadata:
+           cors:
+             allowedOrigins: "*"
+             allowedMethods:
+               - GET
+               - POST
+               - PUT
+               - DELETE
+             allowedHeaders: "*"
+         filters:
+           - AuthenticationFilter
+           
+       - id: books-store
+         uri: lb://books-store
+         predicates:
+           - Path=/books/**
+         metadata:
+           cors:
+             allowedOrigins: "*"
+             allowedMethods:
+               - GET
+               - POST
+               - PUT
+               - DELETE
+             allowedHeaders: "*"
+         filters:
+           - AuthenticationFilter
+           
+       - id: fashion-service
+         uri: lb://fashion-store
+         predicates:
+           - Path=/fashion/**
+         metadata:
+           cors:
+             allowedOrigins: "*"
+             allowedMethods:
+               - GET
+               - POST
+               - PUT
+               - DELETE
+             allowedHeaders: "*"
+         filters:
+           - AuthenticationFilter
+
+
+#feign:
+#  hystrix:
+#    enabled: true
+#
+#logging:
+#  level:
+#    com.netflix.discovery: DEBUG
+#    com.netflix.eureka: DEBUG

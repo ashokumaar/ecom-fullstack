@@ -1,0 +1,66 @@
+.row {
+  margin: 10px 0 !important;
+}
+
+.row > * {
+  margin: 7px 0 !important;
+}
+.card-text #disc-price {
+  font-weight: bold;
+}
+.card {
+  width: auto !important;
+}
+#card {
+  margin: 0 5px;
+}
+.card-body {
+  padding: 4px !important;
+}
+.card #image {
+  width: 60%;
+  height: auto;
+  object-fit: cover;
+}
+.card-title {
+  font-size: large;
+  font-weight: bold;
+  margin-bottom: 4px !important;
+}
+.card:hover {
+  .card-title {
+    color: cornflowerblue;
+  }
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+#filter-toggle:hover{
+ cursor: pointer;
+}
+#disc-price {
+  padding-right: 5px;
+}
+
+@media screen and (max-width: 576px) {
+  .card #image {
+    width: 60%;
+    height: auto;
+    object-fit: cover;
+  }
+  .card-title {
+    font-size: small;
+    margin-bottom: 1px !important;
+  }
+}
+@media (max-width: 767px) {
+  .react-multiple-carousel__arrow{
+    display: none !important;
+  }
+}
+#product-card-title {
+  white-space: nowrap;       /* Prevents the text from wrapping to the next line */
+  /* Hides any text that overflows the container */
+  overflow: hidden;          
+  text-overflow: ellipsis;   /* Adds an ellipsis ("...") to indicate that the text is truncated */
+  display: block;            /* Ensures the element is rendered as a block element */
+  width: 100%;               /* Makes sure the text takes the full width of its container */
+}

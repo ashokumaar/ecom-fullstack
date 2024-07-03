@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fashion-service
+  labels:
+    app: fashion-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fashion-service
+  template:
+    metadata:
+      labels:
+        app: fashion-service
+    spec:
+      containers:
+      - name: fashion-service
+        image: ashokkumarvg/ecommerce-fashion-service:0.0.18-SNAPSHOT
+        ports:
+        - containerPort: 8100
+        env:
+        - name: DB_HOST
+          value: mysql-service
+        - name: DB_NAME
+          value: akfashiondb
+        - name: DB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: mysql-credentials
+              key: username
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-credentials
+              key: password
+        - name: MYSQL_PASSWORD
+          value: "12345678"
+        - name: FASHION_SERVICE_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: external-ips-config
+              key: fashion-service-svc-ip
+#          value: 34.135.19.201:8100
+#          value: fashion-service
+      restartPolicy: Always

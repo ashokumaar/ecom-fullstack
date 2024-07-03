@@ -1,0 +1,38 @@
+version: '3.8'
+services:
+
+  fashion-service:
+    image: fashion-service-alpine
+    container_name: fashion-service
+    ports:
+      - "8082:8082"
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/akfashiondb
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 12345678
+    networks:
+      - ecomm-network
+      
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_PASSWORD: 12345678
+      #MYSQL_USER: root
+      #MYSQL_DATABASE: akfashiondb
+    ports:
+      - "3306:3306"
+    networks:
+      - ecomm-network
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+networks:
+  ecomm-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
