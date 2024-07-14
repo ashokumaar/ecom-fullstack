@@ -1,5 +1,5 @@
 # ecommerce-fullstack-application
-=================================================================================================================
+==========================================================
 # Live appication
 
 - Frontend application [live](https://ak-ecom.netlify.app/)
