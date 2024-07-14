@@ -14,7 +14,7 @@ SignUp:
 The jwtToken is valid for only 2hours after login everytime, if the jwtToken expires then you canot perform cart/orders/account related APIs. You've to login again.
 
 SingIn:
-- Similar process as above. after succesfull login then the app will hit cart api carries the jwttoken for authentication, if the user already have some items in the cart then it'll reflect back in the frontend immediately.
+- Similar process as above after succesfull login then the app will hit cart api carries the jwttoken for authentication, if the user already have some items in the cart then it'll reflect back in the frontend immediately.
 
 Public APIs :
 - Signup
