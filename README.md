@@ -17,21 +17,21 @@ SingIn:
 - Similar process as above. after succesfull login then the app will hit cart api carries the jwttoken for authentication, if the user already have some items in the cart then it'll reflect back in the frontend immediately.
 
 Public APIs :
-    -- Signup
-    -- Signin
+- Signup
+- Signin
 
 The user specific components (the user should be authenticated with jwtToken) :
-    -- Cart
-    -- Order history
-    -- Account info
+- Cart
+- Order history
+- Account info
 
 The admin specific components :
-    -- Account info
-    -- Admin page (should have admin authorization) can able to update the order status for each orders of all users which are coming in.
+- Account info
+- Admin page (should have admin authorization) can able to update the order status for each orders of all users which are coming in.
     
 The seller specific components :
-    -- Account info
-    -- Seller Page (should have seller authorization) can able to add the new product or modify the existed products like quantity change or discounts.
+- Account info
+- Seller Page (should have seller authorization) can able to add the new product or modify the existed products like quantity change or discounts.
 
 # Deployment - frontend
 
@@ -64,4 +64,4 @@ Dockerized all the microservices and deployed them using Kubernetes (GKE) for hi
 
 # Technologies/tools used :
 
-Java, Spring Boot, MySQL, Docker, Kubernetes(GKE), JavaScript, ReactJS, Bootstrap, JWT, Bcrypt.
+- Java, Spring Boot, MySQL, Docker, Kubernetes(GKE), JavaScript, ReactJS, Bootstrap, JWT, Bcrypt.
