@@ -1,3 +1,19 @@
+#service{
+  position: relative;
+  display: inline-block;
+}
+#size{
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: rgb(113, 183, 210);
+  color: white;
+  border-radius: 15%;
+  padding: 0px 6px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
 /* Media query for smaller screens (e.g., mobile devices) */
 @media screen and (max-width: 768px) {
   #my-image {

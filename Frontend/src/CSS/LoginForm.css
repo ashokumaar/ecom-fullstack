@@ -9,3 +9,9 @@
 .form-signin > * {
     margin: 5px 0;
 }
+
+#address-form-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

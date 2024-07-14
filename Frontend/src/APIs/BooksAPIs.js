@@ -1,7 +1,5 @@
 import axios from "axios";
 
-// const baseUrl = 'http://localhost:8100/fashion/products'
-// const baseUrl = 'http://localhost:8888/fashion/products' // api gateway
 const baseUrl = process.env.REACT_APP_BOOKS_SERVICE_API
 
 export const getAllProducts1 = async () => {

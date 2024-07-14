@@ -9,15 +9,12 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <BrowserRouter>
-  //   <App />
-  // </BrowserRouter>
-  // <React.StrictMode>
+  <React.StrictMode>
     <BrowserRouter>
       <ToastContainer />
       <UserContextProvider value={{ /* Initial context value */ }}>
         <App />
       </UserContextProvider>
     </BrowserRouter>
-  // </React.StrictMode>
+  </React.StrictMode>
 );

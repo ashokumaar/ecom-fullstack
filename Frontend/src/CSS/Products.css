@@ -16,6 +16,7 @@
 }
 .card-body {
   padding: 4px !important;
+  flex: 1;
 }
 .card #image {
   width: 60%;
@@ -63,4 +64,12 @@
   text-overflow: ellipsis;   /* Adds an ellipsis ("...") to indicate that the text is truncated */
   display: block;            /* Ensures the element is rendered as a block element */
   width: 100%;               /* Makes sure the text takes the full width of its container */
+}
+
+/* See more card styling for centering content */
+#see-more-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
