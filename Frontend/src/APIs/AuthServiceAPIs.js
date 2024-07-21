@@ -1,7 +1,5 @@
 import axios from "axios";
 
-// const baseUrl = 'http://localhost:8000/'
-// const baseUrl = 'http://localhost:8888' // api gatway
 const baseUrl = process.env.REACT_APP_AUTH_SERVICE_API
 
 // --------------------Auth related-----------------------

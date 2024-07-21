@@ -40,7 +40,7 @@ Pushed the frontend code to the git repo named as [ecommerce-application](https:
 Deployed the frontend project via [Netlify](https://app.netlify.com/) with CI/CD linked to Github - [ecommerce-application](https://github.com/ashokumaar/ecommerce-application) for automatic redeployment.
 
 
-# Lets explore the frontend part
+# Lets explore the backend part
 
 The backend was built with Java - Spring Boot. Utilised microservices architecture, and divided the application into different small microservices (spring boot).
 

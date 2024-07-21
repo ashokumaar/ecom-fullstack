@@ -58,21 +58,6 @@ const Shopping = ({ product }) => {
         // Filter logic based on category, subcategory, and thirdCategory
         let tempProducts = products;
 
-        // const brandMap = tempProducts.reduce((acc, product) => {
-        //     // Initialize count to 1 if brand doesn't exist in acc
-        //     acc[product.brand] = (acc[product.brand] || 0) + 1;
-        //     return acc;
-        // }, {});
-        // const brandCountArray = [];
-        // for (const brand in brandMap) {
-        //     if (brandMap.hasOwnProperty(brand)) {
-        //         brandCountArray.push([brand, brandMap[brand]]);
-        //     }
-        // }
-        // const top10Brands = brandCountArray.sort((a, b) => b[1] - a[1]).slice(0, 10);
-        // const top10BrandNames = top10Brands.map(item => item[0]);
-        // console.log(top10BrandNames);
-
         setIsLoading(true); // Reset loading state after filtering
         if (category && category !== "All") {
             tempProducts = tempProducts.filter(
@@ -466,14 +451,6 @@ const ProductCard = ({ product }) => {
             <Card.Body>
                 <Card.Title id='product-card-title'>{product.title}</Card.Title>
                 <Card.Text>
-                    {/* <div id='product-card-title'><strong>Brand:</strong> {product.brand}</div> */}
-                    {/* <strong>Price:</strong> {product.discountedPrice ? `₹${product.discountedPrice}` : product.selling_price} <br />
-                    <strong>Original Price:</strong> <s>₹{product.price}</s> <br />
-                    <strong>Discount:</strong> {product.discountPersent}% off <br /> */}
-                    {/* <strong>Available Sizes:</strong>{" "}
-                    {product.size.map((s, idx) => (
-                        <span key={idx}>{s.name}{idx < product.size.length - 1 ? ', ' : ''}</span>
-                    ))} */}
                     <span id="disc-price">{product.discountedPrice ? `₹${new Intl.NumberFormat('en-IN').format(product.discountedPrice)}` : `${new Intl.NumberFormat('en-IN').format(product.selling_price)}`}</span>
                     <span className="text-decoration-line-through">{`₹${new Intl.NumberFormat('en-IN').format(product.price)}`}</span>
                     <span className="text-success"> {product.discountPersent}% off</span>
