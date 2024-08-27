@@ -3,7 +3,7 @@
 # Live appication
 
 - Frontend application [https://ak-ecom.netlify.app/](https://ak-ecom.netlify.app/)
-- Backend apps registered in the Eureka, spring boot microservices running at [http://34.71.195.158:8761/](http://34.71.195.158:8761/)
+- Backend apps registered in the Eureka, spring boot microservices running at [http://34.138.169.171:8761/](http://34.138.169.171:8761/)
 
 # Lets explore the frontend part
 
